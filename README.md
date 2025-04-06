@@ -24,10 +24,15 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 
 ## Build manually from source
 * The `app` folder must contain your HTML application.
-
-## Generate Executable
 * After making changes in the `app` folder, build the app:
-```
+```py
+# Clone this repo
+git clone https://github.com/NxRoot/hta-to-exe.git
+
+# go to folder
+cd hta-to-exe
+
+# Generate executable
 dotnet publish -c Release
 ```
 
