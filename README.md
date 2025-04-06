@@ -4,6 +4,8 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 
 <img src="https://i.ibb.co/cKxktysK/ccccb.png"></img>
 
+<img src="https://i.ibb.co/bg50nkGS/Captura-de-ecr-2025-04-06-214352.png"></img>
+
 ## Features
 * Simulated router navigation
 * Small application size (20kb)
@@ -11,14 +13,19 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 * Extreme low memory usage
 * Secure code bundle
 
+## How to Install
+| Exe    | Description | Releases |
+| -------- | ------- | ------- |
+| <a href="https://github.com/NxRoot/hta-to-exe/releases"><img style="min-width: 40px;min-height: 40px; width: 40px;" src="https://i.ibb.co/xtk0drwX/fav.png"/></a> | Download the latest version   | [Download](https://github.com/NxRoot/hta-to-exe/releases)    |
+
 ## Requirements
 
 * [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet)
 
-## Where to place HTA files
+## Build manually from source
 * The `app` folder must contain your HTML application.
 
-## How to Build an Executable
+## Generate Executable
 * After making changes in the `app` folder, build the app:
 ```
 dotnet publish -c Release
