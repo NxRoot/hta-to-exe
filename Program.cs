@@ -16,6 +16,7 @@ class Program
                                             .Where(r => r.StartsWith("apphta.app.") && r.Contains("."))
                                             .ToArray();
 
+
             // Extract and save files to temp folder
             string tempFolder = Path.Combine(Path.GetTempPath(), "apphta");
             Directory.CreateDirectory(tempFolder);
@@ -26,17 +27,19 @@ class Program
                 string fileName = resourceName.Replace("apphta.app.", string.Empty);
                 string[] fileSplit = fileName.Split('.');
                 string[] filesList = fileSplit.Take(fileSplit.Length - 2).ToArray();
+                string last = fileSplit[fileSplit.Length - 2] + "." + fileSplit[fileSplit.Length - 1];
 
+                string realPath = "";
                 foreach (string p in filesList)
                 {
                     if (!Directory.Exists(p))
                     {
                         Directory.CreateDirectory(Path.Combine(tempFolder, p));
                     }
-                    fileName = p + "\\" + fileName.Replace(p + ".", string.Empty);
+                    realPath = Path.Combine(realPath, p);
                 }
 
-                string outputPath = Path.Combine(tempFolder, fileName);
+                string outputPath = Path.Combine(tempFolder, realPath, last);
                 ExtractEmbeddedResource(resourceName, outputPath);
             }
 
@@ -49,7 +52,7 @@ class Program
                 UseShellExecute = true
             });
 
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(3000);
 
             // Delete temp files after the HTA app starts
             DeleteTemporaryFiles(tempFolder);
@@ -80,23 +83,15 @@ class Program
 
     static void DeleteTemporaryFiles(string folder)
     {
-        // Delete all files in the temp folder
-        foreach (var file in Directory.GetFiles(folder))
+        if (Directory.Exists(folder))
         {
-            try
+            foreach (var file in Directory.GetFiles(folder, "*", SearchOption.AllDirectories))
             {
+                File.SetAttributes(file, FileAttributes.Normal); // Make sure the file is not read-only
                 File.Delete(file);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Failed to delete file {file}: {ex.Message}");
-            }
-        }
 
-        // Optionally, delete the folder if it's empty
-        if (Directory.Exists(folder) && Directory.GetFiles(folder).Length == 0)
-        {
-            Directory.Delete(folder);
+            Directory.Delete(folder, true);
         }
     }
 }
