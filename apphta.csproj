@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Batch GUI - Launcher</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <DebugType>embedded</DebugType>
+    <TargetFramework>net47</TargetFramework>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <ApplicationIcon>app/fav.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="app\**\*" />
+  </ItemGroup>
+
+</Project>

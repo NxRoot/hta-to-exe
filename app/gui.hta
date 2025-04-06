@@ -1,0 +1,46 @@
+<html>
+<head>
+   <title>Batch GUI - Launcher</title>
+   <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+   <script language="JavaScript" src="./js/window.js"></script>
+   
+   <HTA:APPLICATION 
+      BORDER="thin"
+      BORDERSTYLE="normal"
+      ICON="fav.ico"
+      WINDOWSTATE="normal"
+      INNERBORDER="no"
+      MAXIMIZEBUTTON="no"
+      MINIMIZEBUTTON="yes"
+      SINGLEINSTANCE="yes"
+      RESIZE="no"
+      CONTEXTMENU="no"
+      SYSMENU="yes"
+      SCROLL="no"
+      SELECTION="no"
+      VERSION="1.0" 
+   >
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+   <div id="pages">
+      
+      <div name="Page 1">
+         <div class="button" onclick="alert('Enable');">Enable Service</div>
+         <div class="button" onclick="alert('Launch');">Launch Program</div>
+         <div class="button fixed right" onclick="setPage(2);">Settings</div>
+      </div>
+
+      <div name="Page 2">
+         <div class="button" onclick="alert('Config')">Edit Config File</div>
+         <div class="button" onclick="alert('Reset')">Reset Settings</div>
+         <div class="button backButton" onclick="setPage(1);">Go Back</div>
+      </div>
+
+   </div>
+   <div class="author fixed left">By NxRoot</div>
+</body>
+
+<script language="JavaScript" src="./js/pages.js"></script>
+</html>
