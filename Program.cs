@@ -45,14 +45,16 @@ class Program
 
             // Now, run the HTA using mshta
             string tempFilePath = Path.Combine(tempFolder, "gui.hta");
+            string currentPath = AppDomain.CurrentDomain.BaseDirectory;
+
             Process.Start(new ProcessStartInfo
             {
                 FileName = "mshta.exe",
-                Arguments = $"\"{tempFilePath}\"",
+                Arguments = $"\"{tempFilePath}?path={currentPath}\"",
                 UseShellExecute = true
             });
 
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
 
             // Delete temp files after the HTA app starts
             DeleteTemporaryFiles(tempFolder);
