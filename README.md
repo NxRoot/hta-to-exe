@@ -1,8 +1,15 @@
 # HTA-TO-EXE - GUI PACKER
 
-This project provides a minimalistic template to pack [HTA applications](https://en.wikipedia.org/wiki/HTML_Application) into a single executable.
+This project provides a template to pack [HTA applications](https://en.wikipedia.org/wiki/HTML_Application) into a single executable.
 
 <img src="https://i.ibb.co/cKxktysK/ccccb.png"></img>
+
+## Features
+* Simulated router navigation
+* Small application size (20kb)
+* Improved browser functions
+* Extreme low memory usage
+* Secure code bundle
 
 ## Requirements
 
@@ -16,6 +23,8 @@ This project provides a minimalistic template to pack [HTA applications](https:/
 ```
 dotnet publish -c Release
 ```
+
+> Output folder: `bin/Release/net47/win-x64/publish` 
 
 ## &nbsp;
 ⭐ If you find this useful!
