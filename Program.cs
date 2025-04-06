@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -24,9 +24,20 @@ class Program
             {
                 // Adjust resource path for the file system
                 string fileName = resourceName.Replace("apphta.app.", string.Empty);
-                string outputPath = Path.Combine(tempFolder, fileName);
+                string[] fileSplit = fileName.Split('.');
+                string[] filesList = fileSplit.Take(fileSplit.Length - 2).ToArray();
 
-                ExtractEmbeddedResource(tempFolder, resourceName, outputPath);
+                foreach (string p in filesList)
+                {
+                    if (!Directory.Exists(p))
+                    {
+                        Directory.CreateDirectory(Path.Combine(tempFolder, p));
+                    }
+                    fileName = p + "\\" + fileName.Replace(p + ".", string.Empty);
+                }
+
+                string outputPath = Path.Combine(tempFolder, fileName);
+                ExtractEmbeddedResource(resourceName, outputPath);
             }
 
             // Now, run the HTA using mshta
@@ -49,7 +60,7 @@ class Program
         }
     }
 
-    static void ExtractEmbeddedResource(string tempFolder, string resourceName, string outputPath)
+    static void ExtractEmbeddedResource(string resourceName, string outputPath)
     {
         // Get the embedded resource stream
         using (var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
@@ -57,14 +68,6 @@ class Program
             if (resourceStream == null)
             {
                 throw new FileNotFoundException($"Embedded resource '{resourceName}' not found.");
-            }
-
-            foreach (string p in outputPath.Split(Path.DirectorySeparatorChar))
-            {
-                if (!p.Contains(".") && !Directory.Exists(p))
-                {
-                    Directory.CreateDirectory(Path.Combine(tempFolder, p));
-                }
             }
 
             // Write the resource stream to the file
