@@ -64,7 +64,7 @@ var shell = new ActiveXObject("WScript.Shell");
 ```
 #### Run Shell Commands
 ```jsx
-shell.Run("cmd.exe /C ls -a", 1, true);
+shell.Run("cmd.exe /C start tree", 1, true);
 ```
 
 #### Folder Picker
