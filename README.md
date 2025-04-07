@@ -83,7 +83,7 @@ if (picker){
 
 #### Fetch HTTP Requests
 ```jsx
-function fetch(method, url, onComplete, onError) {
+function fetch(method, url, onComplete, onError, data) {
     try{
         var xhr = new XMLHttpRequest();
         xhr.open(method, url, true);
@@ -91,7 +91,7 @@ function fetch(method, url, onComplete, onError) {
         xhr.onreadystatechange = function() {
           if (xhr.readyState === 4) onComplete(xhr.responseText)
         };
-        xhr.send();
+        xhr.send(data);
     }catch(err){
         onError(err)
     }
