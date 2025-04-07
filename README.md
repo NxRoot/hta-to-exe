@@ -28,7 +28,7 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 
 ## HTA Tutorials
 
-> The app folder exists for only 5 seconds before it gets deleted.<br>
+> The app folder exists for 5 seconds before it gets deleted.<br>
 > To access a file that is packed inside the app you need to read it on the `window.onload` event.
 
 #### Access File System
