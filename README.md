@@ -46,7 +46,7 @@ var tmpFolder = fs.GetParentFolderName(window.location.pathname);
 #### Read File
 ```jsx
 var fileContent = "";
-var filePath = tmpFolder + "\\file_inside_packed_app.json";
+var filePath = tmpFolder + "\\file_packed_inside_app.json";
 
 if (fs.FileExists(filePath)) {
   var file = fs.OpenTextFile(filePath, 1);
