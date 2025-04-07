@@ -35,13 +35,13 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 ```jsx
 var fs = new ActiveXObject("Scripting.FileSystemObject");
 ```
-#### Get Exe Folder
-```jsx
-var exeFolder = window.location.href.split("?path=")[1];
-```
 #### Get App Folder
 ```jsx
 var tmpFolder = fs.GetParentFolderName(window.location.pathname);
+```
+#### Get Exe Folder
+```jsx
+var exeFolder = window.location.href.split("?path=")[1];
 ```
 #### Read File
 ```jsx
