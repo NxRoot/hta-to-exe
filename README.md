@@ -29,11 +29,15 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 ## HTA Tutorials
 
 > The app folder exists for only 5 seconds before it gets deleted.<br>
-> To access a file that is packed inside the app you need to read it on the `window.onload` event.
+> To access a file that is packed inside the app you need to read it when the app starts.
 
 #### Access File System
 ```jsx
 var fs = new ActiveXObject("Scripting.FileSystemObject");
+```
+#### Get Exe Folder
+```jsx
+var exeFolder = window.location.href.split("?path=")[1];
 ```
 #### Get App Folder
 ```jsx
@@ -53,7 +57,7 @@ if (fs.FileExists(filePath)) {
 #### Write File
 ```jsx
 var data = { message: "Hello World!" }
-var file = fs.CreateTextFile("config.json", true);
+var file = fs.CreateTextFile(exeFolder + "\\config.json", true);
 file.Write(JSON.stringify(data, null, 4));
 file.Close();
 ```
