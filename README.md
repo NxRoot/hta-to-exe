@@ -73,7 +73,7 @@ var picker = new ActiveXObject("Shell.Application").BrowseForFolder(0, "Select a
 
 if (picker){
   var folder = picker.Items().Item().Path;
-  console.log("Selected Folder: " + folder)
+  alert("Selected Folder: " + folder)
 }
 ```
 
