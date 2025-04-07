@@ -88,7 +88,9 @@ function fetch(method, url, onComplete, onError) {
         var xhr = new XMLHttpRequest();
         xhr.open(method, url, true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.onreadystatechange = function() { if (xhr.readyState === 4) onComplete(xhr.responseText) };
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) onComplete(xhr.responseText)
+        };
         xhr.send();
     }catch(err){
         onError(err)
