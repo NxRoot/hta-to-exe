@@ -81,6 +81,32 @@ if (picker){
 }
 ```
 
+#### Fetch HTTP Requests
+```jsx
+function fetch(method, url, onComplete, onError) {
+    try{
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onreadystatechange = function() { if (xhr.readyState === 4) onComplete(xhr.responseText) };
+        xhr.send();
+    }catch(err){
+        onError(err)
+    }
+}
+```
+```jsx
+fetch("GET", "http://api.citybik.es/v2/networks", 
+  function(response){
+    alert(response)
+  },
+  function(err){
+    alert(err)
+  }
+)
+```
+
+
 <br></br>
 
 ## Build manually from source
