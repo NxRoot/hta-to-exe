@@ -72,7 +72,7 @@ shell.Run("cmd.exe /C start tree", 1, true);
 var picker = new ActiveXObject("Shell.Application").BrowseForFolder(0, "Select a folder", 0);
 
 if (picker){
-  var folder = folderPicker.Items().Item().Path;
+  var folder = picker.Items().Item().Path;
   console.log("Selected Folder: " + folder)
 }
 ```
