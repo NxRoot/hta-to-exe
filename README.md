@@ -8,10 +8,12 @@ This project provides a template to pack [HTA applications](https://en.wikipedia
 
 ## Requirements
 
-* [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet)
+* [Microsoft .NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) to build executables.
 
-
-
+## How to Install
+<a href="https://github.com/NxRoot/hta-to-exe/releases">
+<img src="https://i.ibb.co/v4tLGTdP/button.png"></img>
+</a>
 <br></br>
 
 ## HTA Tutorials
