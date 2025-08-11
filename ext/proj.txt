@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Batch GUI - Launcher</AssemblyName>
+    <AssemblyName>APPNAME</AssemblyName>
     <OutputType>WinExe</OutputType>
     <DebugType>embedded</DebugType>
     <TargetFramework>net47</TargetFramework>

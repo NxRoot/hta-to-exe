@@ -18,7 +18,7 @@ class Program
 
 
             // Extract and save files to temp folder
-            string tempFolder = Path.Combine(Path.GetTempPath(), "apphta");
+            string tempFolder = Path.Combine(Path.GetTempPath(), "TEMP_NAME");
             Directory.CreateDirectory(tempFolder);
 
             foreach (var resourceName in embeddedResources)
@@ -47,14 +47,14 @@ class Program
             string tempFilePath = Path.Combine(tempFolder, "gui.hta");
             string currentPath = AppDomain.CurrentDomain.BaseDirectory;
 
-            Process.Start(new ProcessStartInfo
+            var process = Process.Start(new ProcessStartInfo
             {
                 FileName = "mshta.exe",
                 Arguments = $"\"{tempFilePath}?path={currentPath}\"",
-                UseShellExecute = true
+                UseShellExecute = false // Important!
             });
 
-            System.Threading.Thread.Sleep(5000);
+            process?.WaitForExit(); // Wait for the process to exit
 
             // Delete temp files after the HTA app starts
             DeleteTemporaryFiles(tempFolder);

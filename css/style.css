@@ -1,0 +1,52 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #282828;
+    padding-top: 7px;
+    color: #f1f1f1;
+}
+
+input, button {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    margin-bottom: .75rem;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 0.375rem;
+    background-color: #1e1e1e;
+    color: rgb(210, 210, 210);
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background: rgb(80, 80, 80);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    color: rgb(200, 200, 200);
+}
+
+.title{
+    font-size: 12px; 
+    margin-bottom: 5px;
+}
+
+.author {
+    font-size: 10px;
+    color: #606060;
+    padding: 10px;
+    margin-left: 5px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    text-align: center;
+}
+
+:disabled{
+    opacity: 0.25;
+}
